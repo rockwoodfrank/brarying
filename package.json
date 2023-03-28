@@ -8,6 +8,15 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "browser": {
+    "crypto": false,
+    "fs": false,
+    "path": false,
+    "os": false,
+    "net": false,
+    "stream": false,
+    "tls": false
+  },
   "dependencies": {
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",
@@ -17,6 +26,8 @@
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.2"
+    "typescript": "5.0.2",
+    "uuidv4": "^6.2.13",
+    "write-json-file": "^5.0.0"
   }
 }
