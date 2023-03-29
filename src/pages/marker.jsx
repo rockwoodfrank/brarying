@@ -6,8 +6,8 @@ export default function Marker({xPos, yPos, openMod, pushLoc})
     const [color, setColor] = useState('#FF5858');
     return (
         <div className="marker" style={{
-        left: (xPos - 20) + "%",
-        top: (yPos) + "%"
+        left: (xPos - 106) + "px",
+        top: (yPos - 35) + "px"
         }}>
            <svg width="2em" height="2em" viewBox="0 0 103 137" fill="none" xmlns="http://www.w3.org/2000/svg" className="loc-img">
                 <g clipPath="url(#clip0_9_60)">

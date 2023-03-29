@@ -7,8 +7,8 @@ export default function Location({xPos, yPos, name, givenColor, givenTime})
     const [tag,setTag]=useState(name);
     return (
         <div className="location" style={{
-            left: (xPos) + "%",
-            top: (yPos) + "em"
+            left: (xPos - 10) + "%",
+            top: (yPos - 10) + "%"
         }}>
             <svg width="2em" height="2em" viewBox="0 0 103 137" fill="none" xmlns="http://www.w3.org/2000/svg" className="loc-img">
                 <g clipPath="url(#clip0_9_60)">
