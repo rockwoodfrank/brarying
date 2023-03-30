@@ -18,9 +18,9 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     // Read the existing data from the JSON file
     const jsonData = await fsPromises.readFile(dataFilePath);
-    const objectData = JSON.parse(jsonData);
+    const objectData = [[],[],[{"name":"Rocky","xPos":18.220338983050848,"yPos":22.888890584309895,"color":"#DE58FF","time_exp":1680154145404,"key":"c655628f-7db1-4ff1-9664-193f999f7dd6"}],[],[]];
     const filteredData = filterTime(objectData);
-    await fsPromises.writeFile(dataFilePath, JSON.stringify(filteredData));
+    //await fsPromises.writeFile(dataFilePath, JSON.stringify(filteredData));
 
     res.status(200).json(filteredData);
   } else if (req.method === 'POST') {
