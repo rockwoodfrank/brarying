@@ -2,7 +2,6 @@ import Marker from "./marker";
 import Location from "./location";
 import { useState, useRef } from 'react';
 import { uuid } from "uuidv4";
-import { findDOMNode } from 'react-dom';
 
 export default function Map({locations})
 {
@@ -12,6 +11,17 @@ export default function Map({locations})
     const [openEditor, setOpen] = useState(false);
     const mapHeight = 300;
     const mapRef = useRef();
+
+    const saveData = async (location, floor) => {
+        const response = await fetch('/api/storeJSONData', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name:location.name, xPos:location.xPos, yPos:location.yPos, color:location.color, time_exp:location.time_exp, key:location.key, floor:floor }),
+        });
+        const data = await response.json();
+    }
     function handleClick({ pageX, pageY })
     {
         if (!openEditor)
@@ -41,7 +51,8 @@ export default function Map({locations})
     {
         console.log("Bing!");
         let newLocation = {name: name, xPos: calcPercentX(xPos), yPos: calcPercentY(yPos), color: color, time_exp: time, key: uuid()}
-        setList(oldArray => [...oldArray, newLocation])
+        saveData(newLocation, 2);
+        setList(oldArray => [...oldArray, newLocation]);
     }
     return (
         <div id = "map">

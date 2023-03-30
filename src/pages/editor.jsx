@@ -12,8 +12,12 @@ export default function Editor({selectedColor, setColor, handleClick, openMod, x
     ]
     const [inputVal, setInput] = useState('')
     const [selectedTime,setTime]=useState(times[0]);
-    const [tag,setTag]=useState('');
 
+    function calcTime(time)
+    {
+        const timeMillis = time * 60 * 60 * 1000;
+        return Date.now() + timeMillis;
+    }
     function handleTagChange(e)
     {
         setInput(e.target.value);
@@ -22,7 +26,7 @@ export default function Editor({selectedColor, setColor, handleClick, openMod, x
     {
         if (inputVal != '')
         {
-            handleClick(inputVal, selectedColor, selectedTime, xPos, yPos);
+            handleClick(inputVal, selectedColor, calcTime(selectedTime), xPos, yPos);
             openMod(false)
         }
     }

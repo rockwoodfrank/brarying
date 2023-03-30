@@ -5,19 +5,13 @@ import Map from './map';
 
 export default function MyApp() {
     const [data,setData]=useState([]);
-    const getData=()=>{
-        fetch('/data.json',{
-        headers : { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }}).then(function(response){
-            return response.json();
-        }).then(function(myJson) {
-            setData(myJson)
-        });
+    const fetchData = async () => {
+        const response = await fetch('/api/storeJSONData')
+        const data = await response.json();
+        setData(data);
     }
     useEffect(()=>{
-        getData()
+        fetchData();
     },[])
 
     return (
