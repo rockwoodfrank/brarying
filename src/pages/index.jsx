@@ -6,9 +6,9 @@ import Map from './map';
 export default function MyApp() {
     const [data,setData]=useState([]);
     const fetchData = async () => {
-        const response = await fetch('/api/storeJSONData')
-        const data = await response.json();
-        setData(data);
+        //const response = await fetch('/api/storeJSONData')
+        //const data = await response.json();
+        setData([[],[],[{"name":"Rocky","xPos":18.220338983050848,"yPos":22.888890584309895,"color":"#DE58FF","time_exp":1680154145404,"key":"c655628f-7db1-4ff1-9664-193f999f7dd6"}],[],[]]);
     }
     useEffect(()=>{
         fetchData();
