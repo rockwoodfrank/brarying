@@ -2,31 +2,32 @@ import Marker from "./marker";
 import Location from "./location";
 import { useState, useRef } from 'react';
 import { uuid } from "uuidv4";
+import { useQuery } from "thin-backend-react";
+import { createRecord, query } from "thin-backend";
 
-export default function Map({locations})
+export default function Map()
 {
-    const [locList,setList] = useState([]);
     const [pageX, setPageX] = useState(0);
     const [pageY, setPageY] = useState(0);
     const [openEditor, setOpen] = useState(false);
     const mapHeight = 300;
     const mapRef = useRef();
-
-    const saveData = async (location, floor) => {
-        const response = await fetch('/api/storeJSONData', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name:location.name, xPos:location.xPos, yPos:location.yPos, color:location.color, time_exp:location.time_exp, key:location.key, floor:floor }),
+    let locations = useQuery(query('locations'));
+    function saveData(location, floor)
+    {
+        createRecord('locations',{
+            name: location.name,
+            xPos: location.xPos,
+            yPos: location.yPos,
+            color: location.color,
+            timeExp: location.time_exp,
+            floor: floor
         });
-        const data = await response.json();
     }
     function handleClick({ pageX, pageY })
     {
         if (!openEditor)
         {
-            
             setOpen(true);
             setPageX(pageX);
             setPageY(pageY);
@@ -38,21 +39,20 @@ export default function Map({locations})
     {
         let mapWidth = window.innerWidth * 0.6;
         let baselineConst = (window.innerWidth-mapWidth) / 2;
-        return (((pageX-baselineConst)/mapWidth) * 100);
+        let percentRaw = (((pageX-baselineConst)/mapWidth) * 100)
+        return Math.round(percentRaw * 100) / 100;
     }
     function calcPercentY(pageY)
     {
         let baselineConst = mapRef.current.getBoundingClientRect().y;
-        console.log(baselineConst)
-        console.log(((pageY-baselineConst)/mapHeight) * 100)
-        return (((pageY-baselineConst)/mapHeight) * 100);
+        let percentRaw = (((pageY-baselineConst)/mapHeight) * 100)
+        return Math.round(percentRaw * 100) / 100;
     }
     function pushLocation(name, color, time, xPos, yPos)
     {
         console.log("Bing!");
         let newLocation = {name: name, xPos: calcPercentX(xPos), yPos: calcPercentY(yPos), color: color, time_exp: time, key: uuid()}
         saveData(newLocation, 2);
-        setList(oldArray => [...oldArray, newLocation]);
     }
     return (
         <div id = "map">
@@ -69,10 +69,6 @@ export default function Map({locations})
                         <Location name = {loc.name} xPos={loc.xPos} yPos={loc.yPos} 
                             givenColor={loc.color} givenTime={loc.time_exp} key={loc.key} 
                         />)
-                }
-                {
-                    locList.map((loc)=><Location xPos={loc.xPos} yPos={loc.yPos} name={loc.name} 
-                        givenColor={loc.color} givenTime={loc.time} key={loc.key} />)
                 }
             </div>
             <p className="direction">N<br/>o<br/>r<br/>t<br/>h</p>

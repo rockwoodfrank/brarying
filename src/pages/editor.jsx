@@ -16,7 +16,7 @@ export default function Editor({selectedColor, setColor, handleClick, openMod, x
     function calcTime(time)
     {
         const timeMillis = time * 60 * 60 * 1000;
-        return Date.now() + timeMillis;
+        return new Date(Date.now() + timeMillis);
     }
     function handleTagChange(e)
     {

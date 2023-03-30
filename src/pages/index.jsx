@@ -4,21 +4,11 @@ import Background from './background';
 import Map from './map';
 
 export default function MyApp() {
-    const [data,setData]=useState([]);
-    const fetchData = async () => {
-        const response = await fetch('/api/storeJSONData')
-        const data = await response.json();
-        setData(data);
-    }
-    useEffect(()=>{
-        fetchData();
-    },[])
-
     return (
         <main>
             <Background />
             <Header />
-            <Map locations = {data && data.length && data[2]} setData = {setData}/>
+            <Map />
         </main>
     );
 }
