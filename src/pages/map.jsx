@@ -3,7 +3,7 @@ import Location from "./location";
 import { useState, useRef } from 'react';
 import { uuid } from "uuidv4";
 import { useQuery } from "thin-backend-react";
-import { createRecord, query } from "thin-backend";
+import { createRecord, deleteRecord, query } from "thin-backend";
 
 export default function Map()
 {
@@ -13,6 +13,20 @@ export default function Map()
     const mapHeight = 300;
     const mapRef = useRef();
     let locations = useQuery(query('locations'));
+    function checkTime(location) {
+        return Date.parse(location.timeExp) <= Date.now()
+    }
+    function filterTimes(locs) {
+        
+        if (locs != null)
+        {  
+            for (let i=0; i < locs.length; i++)
+            {
+                if (checkTime(locs[i]))
+                    deleteRecord('locations', locs[i].id)
+            }
+        }
+    }
     function saveData(location, floor)
     {
         createRecord('locations',{
@@ -56,6 +70,7 @@ export default function Map()
     }
     return (
         <div id = "map">
+            {filterTimes(locations)}
             <p className="direction">S<br/>o<br/>u<br/>t<br/>h</p>
             <div id="map-grid">
                 <svg width="100%" height={mapHeight + "px"} viewBox="0 0 1000 1279" fill="none" 
@@ -65,9 +80,9 @@ export default function Map()
                     fill="#FFDFAE" stroke="#4C697B" strokeWidth="10" ref={mapRef}/>
                 </svg>
                 {
-                    locations && locations.length>0 && locations.map((loc)=>
+                    locations && locations.length>0 && locations.filter(loc => (loc.floor == 2)).map((loc)=>
                         <Location name = {loc.name} xPos={loc.xPos} yPos={loc.yPos} 
-                            givenColor={loc.color} givenTime={loc.time_exp} key={loc.key} 
+                            givenColor={loc.color} givenTime={loc.timeExp} key={loc.id} 
                         />)
                 }
             </div>

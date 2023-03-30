@@ -3,7 +3,6 @@ import { useState } from "react";
 export default function Location({xPos, yPos, name, givenColor, givenTime})
 {
     const [color, setColor] = useState(givenColor);
-    const [time,setTime]=useState(givenTime);
     const [tag,setTag]=useState(name);
     return (
         <div className="location" style={{
