@@ -12,6 +12,8 @@ export default function Editor({selectedColor, setColor, handleClick, openMod, x
     ]
     const [inputVal, setInput] = useState('')
     const [selectedTime,setTime]=useState(times[0]);
+    let colorIndex = 0;
+    let timeIndex = 0;
 
     function calcTime(time)
     {
@@ -34,22 +36,31 @@ export default function Editor({selectedColor, setColor, handleClick, openMod, x
     return (
         <div className="editor">
             <div className="top">
-                <input type="text" name="" id="" placeholder="Name(s)..." onChange={handleTagChange}/>
+                <input type="text" name="" id="" placeholder="Name(s)..." 
+                    onChange={handleTagChange} style={{animationDuration: "0.4s"}}/>
                 <div className="symbols">
                     <img src="/check.svg" alt="Confirm" onClick={sendInfo} style={{
-                        width: "1em"
+                        width: "1em",
+                        animationDuration: "0.5s"
                     }}/>
                     <img src="/cross.svg" alt="Close" style={{
-                        width: "1em"
+                        width: "1em",
+                        animationDuration: "0.6s"
                     }} onClick={() => openMod(false)}/>
                 </div>
             </div>
             <div className="options">
                 <div className="colors">
-                    {colors.map((color) => <Swatch color={color} selected={color == selectedColor} handleClick={setColor} key={color}/>)}
+                    {colors.map((color) => {
+                        colorIndex++;
+                        return <Swatch color={color} selected={color == selectedColor} handleClick={setColor} colorIndex={colorIndex} key={color}/>
+                    })}
                 </div>
                 <div className="times">
-                    {times.map((time) => <Time time={time} selected={time == selectedTime} handleClick={setTime} key={time}/>)}
+                    {times.map((time) => {
+                        timeIndex++;
+                        return <Time time={time} selected={time == selectedTime} handleClick={setTime} key={time} timeIndex={timeIndex}/>
+                    })}
                 </div>
             </div>
         </div>
