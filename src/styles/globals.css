@@ -8,18 +8,22 @@ body {
 
 }
 
-.main {
-  margin-top: 10%;
+main {
+  margin-top: 15%;
 }
 
-h1 {
-  font-weight: 900;
+header {
   text-align: center;
-  width: 100%;
 }
 
 .headline {
   color: #E7B128;
+  font-weight: 900;
+  width: 100%;
+}
+
+h2 {
+  color: #4c697b;
 }
 
 .background {
@@ -37,7 +41,6 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding-top: 2em;
 }
 
 #map-grid {
