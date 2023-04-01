@@ -1,0 +1,76 @@
+.menu {
+    width: 6%;
+    height: 3%;
+    position: absolute;
+    top: 3%;
+    left: 5%;
+}
+
+.menu div {
+    border: 3px solid #4c697b;
+    border-radius: 50px;
+    position: absolute;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+#top-bar {
+    transform: rotate(45deg);
+    top: 50%;
+}
+
+#middle-bar {
+    transform: rotate(225deg);
+}
+
+#bottom-bar {
+    transform: rotate(-45deg);
+}
+
+#sidebar-overlay {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    opacity: 60%;
+    position: absolute;
+    top: 0%;
+    animation: fade-in 0.3s;
+}
+
+#sidebar-container {
+    position: absolute;
+    top: 0%;
+    padding: 11% 10% 10% 5%;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #4c697b;
+}
+
+#sidebar-background {
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    top: 0%;
+    background-color: white;
+    animation: pop-from-left 0.3s;
+}
+
+.floor-link {
+    animation: drop-down 0.3s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes fade-in {
+  0%   {opacity: 0%;}
+  100% {opacity: 60%;}
+}
+
+@keyframes pop-from-left {
+  0%   {width: 0%}
+  100% {width: 40%}
+}
+
+@keyframes drop-down {
+  0%   {opacity: 0%; position: relative; bottom: 20%;}
+  100% {opacity: 100%; position: relative; bottom: 0%;}
+}

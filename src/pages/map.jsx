@@ -6,7 +6,7 @@ import { useQuery } from "thin-backend-react";
 import { createRecord, deleteRecord, query } from "thin-backend";
 import MapSwitcher from "./mapswitcher";
 
-export default function Map({floor})
+export default function Map({floor, floorIndex})
 {
     const [pageX, setPageX] = useState(0);
     const [pageY, setPageY] = useState(0);
