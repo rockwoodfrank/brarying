@@ -17,7 +17,7 @@ export default function SideBar({floors, setter})
                 <div id="sidebar-container">
                     { floors.map((floor, index) =>
                         <p className="floor-link" onClick={()=>setAndClose(index)} 
-                        style={{animationDelay:(index*0.1)+"s"}}>{floor}</p>
+                        style={{animationDelay:(index*0.1)+"s"}} key={index}>{floor}</p>
                     ) }
                 </div> 
             </section>}
