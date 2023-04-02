@@ -48,9 +48,10 @@ export default function Location({xPos, yPos, name, givenColor, givenTime, mapOp
             </div>
             <p>{name}</p>
             {(mapOpen == editorKey && !editLoc) ? 
-                <InfoBox time={displayTime()} id={editorKey} openMainEditor={openMain}/> : mapOpen == editorKey &&
+                <InfoBox time={displayTime()} id={editorKey} openMainEditor={openMain}/> : mapOpen == editorKey ?
                 <Editor selectedColor={color} setColor={setColor} newPin={false} givenTime={displayTime()}
-                handleClick={pushLoc} openMod={setLoc} previousName={name}/>
+                handleClick={pushLoc} openMod={setLoc} previousName={name}/> :
+                editLoc && setLoc(false)
             }
         </div>
     )

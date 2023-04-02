@@ -10,7 +10,7 @@ export default function Editor({selectedColor, setColor, handleClick, openMod, x
     const times = [
         1, 2, 4
     ]
-    const [inputVal, setInput] = useState('')
+    const [inputVal, setInput] = useState(newPin ? "" : previousName)
     const [selectedTime,setTime]=useState(givenTime ? givenTime : times[0]);
     const [customTime, setCustom]=useState(givenTime ? givenTime:'0:00');
     let colorIndex = 0;
@@ -26,7 +26,6 @@ export default function Editor({selectedColor, setColor, handleClick, openMod, x
             const hours = parseInt(time);
             const minutes = parseInt(time.substring(time.length-2))
             timeMillis = (hours + minutes/60) * 60 * 60 * 1000;
-            console.log(timeMillis)
         }
         return new Date(Date.now() + timeMillis);
     }

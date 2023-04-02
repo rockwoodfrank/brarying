@@ -75,7 +75,8 @@ export default function Map({floor, floorIndex})
             {filterTimes(locations)}
             <p className="direction">S<br/>o<br/>u<br/>t<br/>h</p>
             <div id="map-grid">
-                <MapSwitcher handleClick={handleClick} aspectRatio={"none"} height={mapHeight} mapRef={mapRef} floor={floor}/>
+                <MapSwitcher handleClick={handleClick} aspectRatio={"none"} 
+                height={mapHeight} mapRef={mapRef} floor={floor} />
                 {
                     locations && locations.length>0 && locations.filter(loc => (loc.floor == floor)).map((loc)=>
                         <Location name = {loc.name} xPos={loc.xPos} yPos={loc.yPos} 
