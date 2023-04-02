@@ -4,7 +4,7 @@ export default function Time({time, timeList, selected, handleClick, timeIndex, 
     {
         setCustom(e.target.value);
     }
-    if (timeList.indexOf(time) >= 0) return (
+    if (time && timeList.indexOf(time) >= 0) return (
         <div className="time" style={{
             backgroundColor: selected && "#9e9e9e",
             animationDuration: (0.3 + timeIndex*0.1)+"s"
