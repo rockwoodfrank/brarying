@@ -34,7 +34,7 @@
     opacity: 60%;
     position: absolute;
     top: 0%;
-    animation: fade-in 0.3s;
+    animation: fade-in-opacity 0.3s;
 }
 
 #sidebar-container {
@@ -60,7 +60,7 @@
     animation-fill-mode: backwards;
 }
 
-@keyframes fade-in {
+@keyframes fade-in-opacity {
   0%   {opacity: 0%;}
   100% {opacity: 60%;}
 }
