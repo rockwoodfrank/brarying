@@ -10,7 +10,7 @@ export default function Map({floor, floorIndex})
 {
     const [pageX, setPageX] = useState(0);
     const [pageY, setPageY] = useState(0);
-    const [openEditor, setOpen] = useState(false);
+    const [openEditor, setOpen] = useState('');
     const mapHeight = 300;
     const mapRef = useRef();
     let locations = useQuery(query('locations'));
@@ -41,14 +41,14 @@ export default function Map({floor, floorIndex})
     }
     function handleClick({ pageX, pageY })
     {
-        if (!openEditor)
+        if (openEditor == "")
         {
-            setOpen(true);
+            setOpen('editor');
             setPageX(pageX);
             setPageY(pageY);
         }
         else
-            setOpen(false)
+            setOpen("")
     }
     function calcPercentX(pageX)
     {
@@ -66,7 +66,8 @@ export default function Map({floor, floorIndex})
     function pushLocation(name, color, time, xPos, yPos)
     {
         console.log("Bing!");
-        let newLocation = {name: name, xPos: calcPercentX(xPos), yPos: calcPercentY(yPos), color: color, time_exp: time, key: uuid()}
+        let newLocation = {name: name, xPos: calcPercentX(xPos), yPos: calcPercentY(yPos), color: color, time_exp: time}
+        console.log(newLocation);
         saveData(newLocation, floor);
     }
     return (
@@ -79,12 +80,12 @@ export default function Map({floor, floorIndex})
                     locations && locations.length>0 && locations.filter(loc => (loc.floor == floor)).map((loc)=>
                         <Location name = {loc.name} xPos={loc.xPos} yPos={loc.yPos} 
                             givenColor={loc.color} givenTime={loc.timeExp} key={loc.id} 
-                            mapOpen = {openEditor} setOpen = {setOpen}
+                            mapOpen = {openEditor} setOpen = {setOpen} editorKey = {loc.id}
                         />)
                 }
             </div>
             <p className="direction">N<br/>o<br/>r<br/>t<br/>h</p>
-            {openEditor && <Marker xPos={pageX} yPos={pageY} openMod={setOpen} pushLoc={pushLocation} />}
+            {openEditor == "editor" && <Marker xPos={pageX} yPos={pageY} openMod={setOpen} pushLoc={pushLocation} />}
         </div>
     )
 }

@@ -1,23 +1,38 @@
 import { useState } from "react";
+import InfoBox from "./infobox.jsx"
+import Editor from "./editor.jsx";
+import { updateRecord } from "thin-backend";
 
-export default function Location({xPos, yPos, name, givenColor, givenTime, mapOpen, setOpen})
+export default function Location({xPos, yPos, name, givenColor, givenTime, mapOpen, setOpen, editorKey})
 {
     const [color, setColor] = useState(givenColor);
     const [tag,setTag]=useState(name);
-    const [localOpen, setLocal]=useState(false);
-    function toggleEditor() {
-        if (!mapOpen)
-        {
-            setLocal(true)
-            setOpen(true)
-        }
-
+    const [editLoc, setLoc]=useState(false);
+    function openMain()
+    {
+        setLoc(true);
+    }
+    function pushLoc(tag, color, time)
+    {
+        updateRecord('locations', editorKey, {
+            name: tag,
+            color: color,
+            timeExp: time
+        })
+    }
+    function displayTime()
+    {
+        let timeRemaining = Date.parse(givenTime) - Date.now();
+        let hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+        let minutes = Math.floor(timeRemaining / (1000 * 60)) % 60;
+        return hours + ":" + (minutes < 10 ? "0" : "") + minutes
     }
     return (
+ 
         <div className="location" style={{
             left: (xPos - 10) + "%",
             top: (yPos - 10) + "%"
-        }}>
+        }} onClick={()=>setOpen(editorKey)}>
             <div className="loc-img-container">
                 <svg viewBox="0 0 103 137" fill="none" xmlns="http://www.w3.org/2000/svg" className="loc-img" preserveAspectRatio="none">
                     <g clipPath="url(#clip0_9_60)">
@@ -31,7 +46,12 @@ export default function Location({xPos, yPos, name, givenColor, givenTime, mapOp
                     </defs>
                 </svg>
             </div>
-            <p>{tag}</p>
+            <p>{name}</p>
+            {(mapOpen == editorKey && !editLoc) ? 
+                <InfoBox time={displayTime()} id={editorKey} openMainEditor={openMain}/> : mapOpen == editorKey &&
+                <Editor selectedColor={color} setColor={setColor} newPin={false} givenTime={displayTime()}
+                handleClick={pushLoc} openMod={setLoc} previousName={name}/>
+            }
         </div>
     )
 }

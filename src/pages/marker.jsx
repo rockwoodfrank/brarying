@@ -23,7 +23,7 @@ export default function Marker({xPos, yPos, openMod, pushLoc})
                     </defs>
                 </svg>
             </div>
-            <Editor selectedColor={color} setColor={setColor} 
+            <Editor selectedColor={color} setColor={setColor} newPin={true} 
                 handleClick={pushLoc} openMod={openMod} xPos={xPos} yPos={yPos}/>
         </div>
     )

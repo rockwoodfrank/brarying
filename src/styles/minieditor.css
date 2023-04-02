@@ -1,0 +1,46 @@
+.mini-editor {
+    display: flex;
+    background-color: #d9d9d9;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    align-items: center;
+    position: relative;
+}
+
+.mini-editor svg {
+    height: 1em;
+    padding: 0 0.2em;
+}
+
+.pencil {
+    opacity: 100%;
+    transition: opacity;
+    transition-duration: 0.3s;
+}
+
+.invisible {
+    opacity: 0%;
+}
+
+.trash {
+    position: relative;
+    transition: all 0.3s;
+    right: 0em;
+}
+
+.trash-confirm {
+    right: 1.5em;
+    transform: rotate(360deg);
+}
+
+.cross {
+    position: absolute;
+    right: 0.7em;
+    animation: fade-in 0.3s;
+    width: 1em;
+}
+
+@keyframes fade-in {
+  0%   {opacity: 0%;}
+  100% {opacity: 100%;}
+}
