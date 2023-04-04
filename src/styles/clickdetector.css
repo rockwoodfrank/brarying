@@ -1,0 +1,12 @@
+#click-detector{
+    width: 100%;
+    position: relative;
+    display: flex;
+    height: 20%;
+}
+
+.coordinate {
+    width: 1%;
+    height: 1%;
+    background-color: red;
+}

@@ -5,6 +5,7 @@ import { uuid } from "uuidv4";
 import { useQuery } from "thin-backend-react";
 import { createRecord, deleteRecord, query } from "thin-backend";
 import MapSwitcher from "./mapswitcher";
+import ClickDetector from "./clickdetector";
 
 export default function Map({floor, floorIndex})
 {
