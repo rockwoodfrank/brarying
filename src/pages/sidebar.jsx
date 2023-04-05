@@ -38,7 +38,7 @@ export default function SideBar({floors, setter, current})
                 <div id="sidebar-background"></div>
                 <div id="sidebar-container">
                     { floors.map((floor, index) =>
-                        <FloorName index={index} floor={floor} locPresent={checkFloor} setAndClose={setAndClose}/>
+                        <FloorName index={index} floor={floor} locPresent={checkFloor} setAndClose={setAndClose} key={index}/>
                     ) }
                 </div> 
             </section>}
