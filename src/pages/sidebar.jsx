@@ -24,9 +24,8 @@ export default function SideBar({floors, setter, current})
         let otherFloors = false;
         if (locations)
             for (let i = 0; i < locations.length; i++)
-                if (locations[i].floor != current)
-                    if (locations[i].floor == givenFloor)
-                        otherFloors = true; 
+                if (locations[i].floor == givenFloor)
+                    otherFloors = true; 
         return otherFloors;
     }
     // Will be passed an array of locations and a setter
