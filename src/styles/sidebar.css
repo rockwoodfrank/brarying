@@ -55,9 +55,23 @@
     animation: pop-from-left 0.3s;
 }
 
+.floor-container {
+    position: relative;
+}
+
 .floor-link {
     animation: drop-down 0.3s;
     animation-fill-mode: backwards;
+}
+
+.active-dot {
+    width: 0;
+    height: 0;
+    top: -3px;
+    left: -3px;
+    border: 7px solid red;
+    border-radius: 100%;
+    position: absolute;
 }
 
 @keyframes fade-in-opacity {
