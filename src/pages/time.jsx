@@ -1,5 +1,13 @@
+import { useState } from "react";
+
 export default function Time({time, timeList, selected, handleClick, timeIndex, setCustom})
 {
+    const [customTime, setCustomTime] = useState(time);
+    function handleCustomClick(time)
+    {
+        setCustomTime("0:00")
+        handleClick(time)
+    }
     function handleTimeChange(e)
     {
         setCustom(e.target.value);
@@ -15,7 +23,7 @@ export default function Time({time, timeList, selected, handleClick, timeIndex, 
     else return (
         <input type="text" className="time" 
         style={{animationDuration: (0.3 + timeIndex*0.1)+"s", 
-        backgroundColor: selected && "#9e9e9e"}} onClick={() => handleClick(time)}
-        placeholder="Custom" defaultValue={time < 0 ? "" : time} onChange={handleTimeChange}/>
+        backgroundColor: selected && "#9e9e9e"}} onClick={() => handleCustomClick(time)}
+        placeholder="Custom" defaultValue={customTime < 0 ? "" : customTime} onChange={handleTimeChange}/>
     );
 }
