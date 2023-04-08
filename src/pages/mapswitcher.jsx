@@ -61,7 +61,7 @@ export default function MapSwitcher({handleClick, aspectRatio, height, mapRef, f
                         <rect x="601" y="467" width="8" height="102" fill="#4C697B"/>
                         <rect x="322" y="838" width="101" height="9" fill="#4C697B"/>
                         <rect x="121" y="841" width="169" height="40" fill="#4C697B"/>
-                        <path d="M454 841H555V847H519.5V881H454V841Z" fill="#4C697B"/>
+                        <path d="M454 841H519.5V881H454V841Z" fill="#4C697B"/>
                         <rect x="784" y="717" width="37" height="26" fill="#FFF2DE"/>
                         <rect x="784" y="390" width="37" height="25" fill="#FFF2DE"/>
                         <rect x="784" y="552" width="37" height="27" fill="#FFF2DE"/>
@@ -73,11 +73,91 @@ export default function MapSwitcher({handleClick, aspectRatio, height, mapRef, f
                         <rect x="784" y="511" width="37" height="27" fill="#FFF2DE"/>
                         <rect x="784" y="594" width="37" height="27" fill="#FFF2DE"/>
                         <rect x="784" y="429" width="37" height="26" fill="#FFF2DE"/>
+                        <rect x="556" y="440" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="653" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="763" width="149" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="851" width="149" height="15" fill="#91A8B6"/>
+                        <rect x="479" y="829" width="64" height="15" transform="rotate(-90 479 829)" fill="#91A8B6"/>
+                        <rect x="251" y="829" width="64" height="15" transform="rotate(-90 251 829)" fill="#91A8B6"/>
+                        <rect x="185" y="829" width="64" height="15" transform="rotate(-90 185 829)" fill="#91A8B6"/>
+                        <rect x="144" y="1032" width="105" height="15" transform="rotate(-90 144 1032)" fill="#91A8B6"/>
+                        <rect x="341" y="1032" width="105" height="15" transform="rotate(-90 341 1032)" fill="#91A8B6"/>
+                        <rect x="556" y="719" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="829" width="149" height="15" fill="#91A8B6"/>
+                        <rect x="457" y="829" width="64" height="15" transform="rotate(-90 457 829)" fill="#91A8B6"/>
+                        <rect x="229" y="829" width="64" height="15" transform="rotate(-90 229 829)" fill="#91A8B6"/>
+                        <rect x="188" y="1032" width="105" height="15" transform="rotate(-90 188 1032)" fill="#91A8B6"/>
+                        <rect x="385" y="1032" width="105" height="15" transform="rotate(-90 385 1032)" fill="#91A8B6"/>
+                        <rect x="210" y="1032" width="105" height="15" transform="rotate(-90 210 1032)" fill="#91A8B6"/>
+                        <rect x="407" y="1032" width="105" height="15" transform="rotate(-90 407 1032)" fill="#91A8B6"/>
+                        <rect x="163" y="829" width="64" height="15" transform="rotate(-90 163 829)" fill="#91A8B6"/>
+                        <rect x="123" y="808" width="64" height="15" transform="rotate(-90 123 808)" fill="#91A8B6"/>
+                        <rect x="122" y="1032" width="105" height="15" transform="rotate(-90 122 1032)" fill="#91A8B6"/>
+                        <rect x="319" y="1032" width="105" height="15" transform="rotate(-90 319 1032)" fill="#91A8B6"/>
+                        <rect x="661" y="552" width="73" height="15" fill="#91A8B6"/>
+                        <rect x="61" y="720" width="79" height="15" fill="#91A8B6"/>
+                        <rect x="61" y="632" width="79" height="15" fill="#91A8B6"/>
+                        <rect x="661" y="508" width="73" height="15" fill="#91A8B6"/>
+                        <rect x="61" y="676" width="79" height="15" fill="#91A8B6"/>
+                        <rect x="61" y="588" width="79" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="418" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="631" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="697" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="807" width="149" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="374" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="587" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="661" y="530" width="73" height="15" fill="#91A8B6"/>
+                        <rect x="61" y="698" width="79" height="15" fill="#91A8B6"/>
+                        <rect x="61" y="610" width="79" height="15" fill="#91A8B6"/>
+                        <rect x="661" y="486" width="73" height="15" fill="#91A8B6"/>
+                        <rect x="61" y="654" width="79" height="15" fill="#91A8B6"/>
+                        <rect x="661" y="464" width="73" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="352" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="308" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="396" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="609" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="675" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="785" width="149" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="873" width="149" height="15" fill="#91A8B6"/>
+                        <rect x="501" y="829" width="64" height="15" transform="rotate(-90 501 829)" fill="#91A8B6"/>
+                        <rect x="273" y="829" width="64" height="15" transform="rotate(-90 273 829)" fill="#91A8B6"/>
+                        <rect x="207" y="829" width="64" height="15" transform="rotate(-90 207 829)" fill="#91A8B6"/>
+                        <rect x="166" y="1032" width="105" height="15" transform="rotate(-90 166 1032)" fill="#91A8B6"/>
+                        <rect x="363" y="1032" width="105" height="15" transform="rotate(-90 363 1032)" fill="#91A8B6"/>
+                        <rect x="556" y="330" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="286" width="178" height="15" fill="#91A8B6"/>
+                        <rect x="556" y="235" width="178" height="30" fill="#FFF2DE"/>
+                        <rect x="556" y="184" width="178" height="30" fill="#FFF2DE"/>
+                        <rect x="556" y="133" width="178" height="30" fill="#FFF2DE"/>
+                        <rect x="445" y="681" width="25" height="25" fill="#FFF2DE"/>
+                        <rect x="407" y="681" width="25" height="25" fill="#FFF2DE"/>
+                        <rect x="369" y="681" width="25" height="25" fill="#FFF2DE"/>
+                        <rect x="330" y="681" width="25" height="25" fill="#FFF2DE"/>
+                        <rect x="292" y="681" width="25" height="25" fill="#FFF2DE"/>
+                        <rect x="244" y="927" width="56" height="31" fill="#FFF2DE"/>
+                        <rect x="50" y="823" width="56" height="16" fill="#FFF2DE"/>
+                        <rect x="50" y="757" width="56" height="16" fill="#FFF2DE"/>
+                        <rect x="50" y="773" width="15" height="50" fill="#FFF2DE"/>
+                        <rect x="244" y="967" width="56" height="31" fill="#FFF2DE"/>
+                        <rect x="244" y="1004" width="56" height="31" fill="#FFF2DE"/>
+                        <rect x="254" y="681" width="25" height="25" fill="#FFF2DE"/>
+                        <rect x="765" y="64" width="56" height="25" fill="#FFF2DE"/>
+                        <rect x="765" y="25" width="56" height="25" fill="#FFF2DE"/>
+                        <rect x="765" y="103" width="56" height="25" fill="#FFF2DE"/>
+                        <rect x="765" y="142" width="56" height="25" fill="#FFF2DE"/>
+                        <circle cx="583" cy="929" r="27" fill="#FFF2DE"/>
+                        <circle cx="409" cy="881" r="27" fill="#FFF2DE"/>
+                        <circle cx="337" cy="881" r="27" fill="#FFF2DE"/>
+                        <circle cx="373" cy="807" r="27" fill="#FFF2DE"/>
+                        <circle cx="681" cy="929" r="27" fill="#FFF2DE"/>
+                        <circle cx="779" cy="929" r="27" fill="#FFF2DE"/>
+                        <rect x="114" y="1041" width="337" height="20" fill="#FFF2DE"/>
                         <defs>
                         <clipPath id="clip0_95_3">
                         <rect width="80" height="80" fill="white" transform="translate(373 37)"/>
                         </clipPath>
                         </defs>
+
                     </svg>
                 )
             case 3:
