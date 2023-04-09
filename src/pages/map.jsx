@@ -53,10 +53,19 @@ export default function Map({floor, floorIndex})
     }
     function calcPercentX(pageX)
     {
-        let mapWidth = window.innerWidth * 0.6;
-        let baselineConst = (window.innerWidth-mapWidth) / 2;
-        let percentRaw = (((pageX-baselineConst)/mapWidth) * 100)
-        return Math.round(percentRaw * 100) / 100;
+        let baselineConst = mapRef.current.getBoundingClientRect().x;
+        if (baselineConst > (300/3))
+        {
+            let percentRaw = (((pageX-baselineConst)/300) * 100)
+            return Math.round(percentRaw * 100) / 100;
+        }
+        else
+        {
+            let mapWidth = window.innerWidth * 0.6;
+            baselineConst = (window.innerWidth-mapWidth) / 2;
+            let percentRaw = (((pageX-baselineConst)/mapWidth) * 100)
+            return Math.round(percentRaw * 100) / 100;
+        }
     }
     function calcPercentY(pageY)
     {

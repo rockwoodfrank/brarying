@@ -36,6 +36,10 @@ h2 {
   align-items: center;
 }
 
+.rendered-map {
+  width: 100%;
+}
+
 #map-grid {
   position: relative;
   width: 60%;

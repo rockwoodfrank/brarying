@@ -1,180 +1,37 @@
+import Image from "next/image"
+
 export default function MapSwitcher({handleClick, aspectRatio, height, mapRef, floor}) {
     function renderMap() {
         switch(floor) {
             case 0:
                 return (
-                    <svg width="100%" height={height + "px"} viewBox="0 0 837 1245" fill="none" onClick={handleClick} id="map-actual"
-                    xmlns="http://www.w3.org/2000/svg"  preserveAspectRatio={aspectRatio} ref={mapRef}>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M42 1240V1016H5V823H19V739H5V545H19V461H5V5H91V173H209V117H290V212H320V173H343V117H422V131H507V117H832V180H828V360H832V460H828V916H832V1016H828V1196H832V1240H785V1234H517V1240H505V1199H332V1240H273V1237H260V1240H42ZM416 880H236V497L416 496V880Z" fill="#FFDFAE" stroke="#4C697B" stroke-width="10"/>
-                        <rect x="237" y="496" width="179" height="383" fill="#447053"/>
-                    </svg>
+                    <Image src = "/Floor1.svg" width={200} height={height} 
+                    preserveAspectRatio={aspectRatio} className="rendered-map" onClick={handleClick} 
+                    ref={mapRef} alt="Map" style={{height: height}}/>
                 )
             case 1:
                 return (
-                    <svg width="100%" height={height + "px"} viewBox="0 0 854 1132" fill="none" onClick={handleClick} id="map-actual"
-                    xmlns="http://www.w3.org/2000/svg"  preserveAspectRatio={aspectRatio} ref={mapRef}>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5 1127V470H15V471H19V200H5V5H15V19H100V5H253V44H283V5H385V6H470V5H755H756V6H849V201H794V283H849V757H794V839H849V1034H480V1072H468V1065H294V1127H5ZM199 328V712V807H381V328H199Z" fill="#FFDFAE" stroke="#4C697B" strokeWidth="10"/>
-                    </svg>
+                    <Image src = "/Floor2.svg" width={200} height={height} 
+                    preserveAspectRatio={aspectRatio} className="rendered-map"  onClick={handleClick} 
+                    ref={mapRef} alt="Map" style={{height: height}}/>
                 )
             case 2:
                 return (
-                    <svg width="100%" height={height + "px"} viewBox="0 0 838 1071" fill="none" 
-                        onClick={handleClick} id="map-actual" ref={mapRef}
-                        xmlns="http://www.w3.org/2000/svg"  preserveAspectRatio={aspectRatio}>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M42 850H5V750H56V572H42V471H52V472H56L55 201H42V6H52V20H137V6H290V7H320V6H422V7H508V6H757V20H826V194H832V293H826V750H833V850H826V968H735V982H601V968H530V955H517V955.5V974.5V1019V1066H477H85.5H42V1021V977V934V890V850ZM235 282H491V658H235V432.5V379.5V341.5V286.5V282Z" fill="#FFDFAE"/>
-                        <path d="M85.5 1066H42V1021M85.5 1066V1021M85.5 1066H477M37.5 850.5V845.5H85.5V890M42 890V850H5V750H56V572H42V471H52V472H56L55 201H42V6H52V20H137V6H290V7H320V6H422V7H508V6H757V20H826V194H832V293H826V750H833V850H826V968H735V982H601V968H530V955H517V955.5M42 890H85.5M42 890V934M85.5 890V934M85.5 934H42M85.5 934V977M42 934V977M42 977H85.5M42 977V1021M85.5 977V1021M85.5 1021H42M477 1066H517V1019M477 1066V1019M517 955.5L516.5 916V930.5H477V974.5M517 955.5V974.5M477 974.5H517M477 974.5V1019M517 974.5V1019M517 1019H477M235 432.5V658H491V282H235V286.5M235 432.5H187.5V379.5M235 432.5V379.5M235 286.5H187.5V341.5M235 286.5V341.5M235 341.5H187.5M235 341.5V379.5M187.5 341.5V379.5M187.5 379.5H235" stroke="#4C697B" stroke-width="10"/>
-                        <g clip-path="url(#clip0_95_3)">
-                        <path d="M413 37C411.559 37 410.391 38.168 410.391 39.6088V114.391C410.391 115.832 411.559 117 413 117C414.44 117 415.609 115.832 415.609 114.391V39.6088C415.609 38.168 414.44 37 413 37Z" fill="#4C697B"/>
-                        <path d="M389.522 43.9566C383.768 43.9566 379.087 48.6377 379.087 54.3914C379.087 60.1452 383.768 64.8262 389.522 64.8262C395.276 64.8262 399.957 60.1452 399.957 54.3914C399.957 48.6375 395.276 43.9566 389.522 43.9566ZM389.522 59.6087C386.645 59.6087 384.304 57.2683 384.304 54.3914C384.304 51.5145 386.645 49.1741 389.522 49.1741C392.399 49.1741 394.739 51.5145 394.739 54.3914C394.739 57.2681 392.399 59.6087 389.522 59.6087Z" fill="#4C697B"/>
-                        <path d="M436.478 43.9566C430.725 43.9566 426.043 48.6377 426.043 54.3914C426.043 60.1452 430.725 64.8262 436.478 64.8262C442.232 64.8262 446.913 60.1452 446.913 54.3914C446.913 48.6375 442.232 43.9566 436.478 43.9566ZM436.478 59.6087C433.601 59.6087 431.261 57.2683 431.261 54.3914C431.261 51.5145 433.601 49.1741 436.478 49.1741C439.355 49.1741 441.696 51.5145 441.696 54.3914C441.696 57.2681 439.355 59.6087 436.478 59.6087Z" fill="#4C697B"/>
-                        <path d="M402.565 70.0434H376.478C374.659 70.0434 373.397 71.8639 374.036 73.5681L381.696 93.9947V103.956C381.696 108.272 385.207 111.782 389.522 111.782C393.837 111.782 397.348 108.272 397.348 103.956V93.9947L405.008 73.5681C405.647 71.8645 404.385 70.0434 402.565 70.0434ZM392.297 92.6058C392.187 92.8986 392.131 93.2089 392.131 93.5217V103.957C392.131 105.395 390.96 106.565 389.522 106.565C388.083 106.565 386.913 105.395 386.913 103.957V93.5217C386.913 93.2089 386.857 92.8986 386.747 92.6058L380.243 75.2609H398.801L392.297 92.6058Z" fill="#4C697B"/>
-                        <path d="M451.965 92.6058L444.138 71.7362C443.757 70.7181 442.783 70.0436 441.696 70.0436H431.261C430.174 70.0436 429.2 70.7183 428.818 71.7362L420.992 92.6058C420.353 94.3094 421.615 96.1305 423.435 96.1305H428.652V103.957C428.652 108.272 432.163 111.783 436.478 111.783C440.794 111.783 444.305 108.272 444.305 103.957V96.1305H449.522C451.341 96.1305 452.604 94.3098 451.965 92.6058ZM441.696 90.913C440.255 90.913 439.087 92.0809 439.087 93.5217V103.957C439.087 105.395 437.917 106.565 436.478 106.565C435.04 106.565 433.87 105.395 433.87 103.957V93.5217C433.87 92.0811 432.702 90.913 431.261 90.913H427.199L433.069 75.2609H439.888L445.757 90.9131H441.696V90.913Z" fill="#4C697B"/>
-                        </g>
-                        <rect x="185.5" y="701.667" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="568.333" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="635" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="501.667" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="688.333" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="555" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="621.667" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="488.333" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="675" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="541.667" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="608.333" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="475" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="661.667" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="528.333" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="595" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="461.667" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="648.333" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="515" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="581.667" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="448.333" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <rect x="185.5" y="435" width="48" height="13.3333" stroke="#4C697B" stroke-width="6"/>
-                        <path d="M41.5 566.5H142.5V193.5H289.5V46.5H324.5V193.5H513.5V102.5H569.5V65.5M569.5 65.5H511V5H564H615.5V65.5M569.5 65.5H615.5M698.5 5V65.5H615.5" stroke="#4C697B" stroke-width="10"/>
-                        <rect x="789" y="750" width="44" height="100" fill="#4C697B"/>
-                        <rect x="788" y="193" width="44" height="100" fill="#4C697B"/>
-                        <rect x="752" y="843" width="37" height="7" fill="#4C697B"/>
-                        <rect x="751" y="286" width="37" height="7" fill="#4C697B"/>
-                        <rect x="752" y="750" width="37" height="7" fill="#4C697B"/>
-                        <rect x="751" y="193" width="37" height="7" fill="#4C697B"/>
-                        <rect x="601" y="467" width="8" height="102" fill="#4C697B"/>
-                        <rect x="322" y="838" width="101" height="9" fill="#4C697B"/>
-                        <rect x="121" y="841" width="169" height="40" fill="#4C697B"/>
-                        <path d="M454 841H519.5V881H454V841Z" fill="#4C697B"/>
-                        <rect x="784" y="717" width="37" height="26" fill="#FFF2DE"/>
-                        <rect x="784" y="390" width="37" height="25" fill="#FFF2DE"/>
-                        <rect x="784" y="552" width="37" height="27" fill="#FFF2DE"/>
-                        <rect x="784" y="635" width="37" height="27" fill="#FFF2DE"/>
-                        <rect x="784" y="308" width="37" height="26" fill="#FFF2DE"/>
-                        <rect x="784" y="470" width="37" height="26" fill="#FFF2DE"/>
-                        <rect x="784" y="677" width="37" height="26" fill="#FFF2DE"/>
-                        <rect x="784" y="348" width="37" height="27" fill="#FFF2DE"/>
-                        <rect x="784" y="511" width="37" height="27" fill="#FFF2DE"/>
-                        <rect x="784" y="594" width="37" height="27" fill="#FFF2DE"/>
-                        <rect x="784" y="429" width="37" height="26" fill="#FFF2DE"/>
-                        <rect x="556" y="440" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="653" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="763" width="149" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="851" width="149" height="15" fill="#91A8B6"/>
-                        <rect x="479" y="829" width="64" height="15" transform="rotate(-90 479 829)" fill="#91A8B6"/>
-                        <rect x="251" y="829" width="64" height="15" transform="rotate(-90 251 829)" fill="#91A8B6"/>
-                        <rect x="185" y="829" width="64" height="15" transform="rotate(-90 185 829)" fill="#91A8B6"/>
-                        <rect x="144" y="1032" width="105" height="15" transform="rotate(-90 144 1032)" fill="#91A8B6"/>
-                        <rect x="341" y="1032" width="105" height="15" transform="rotate(-90 341 1032)" fill="#91A8B6"/>
-                        <rect x="556" y="719" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="829" width="149" height="15" fill="#91A8B6"/>
-                        <rect x="457" y="829" width="64" height="15" transform="rotate(-90 457 829)" fill="#91A8B6"/>
-                        <rect x="229" y="829" width="64" height="15" transform="rotate(-90 229 829)" fill="#91A8B6"/>
-                        <rect x="188" y="1032" width="105" height="15" transform="rotate(-90 188 1032)" fill="#91A8B6"/>
-                        <rect x="385" y="1032" width="105" height="15" transform="rotate(-90 385 1032)" fill="#91A8B6"/>
-                        <rect x="210" y="1032" width="105" height="15" transform="rotate(-90 210 1032)" fill="#91A8B6"/>
-                        <rect x="407" y="1032" width="105" height="15" transform="rotate(-90 407 1032)" fill="#91A8B6"/>
-                        <rect x="163" y="829" width="64" height="15" transform="rotate(-90 163 829)" fill="#91A8B6"/>
-                        <rect x="123" y="808" width="64" height="15" transform="rotate(-90 123 808)" fill="#91A8B6"/>
-                        <rect x="122" y="1032" width="105" height="15" transform="rotate(-90 122 1032)" fill="#91A8B6"/>
-                        <rect x="319" y="1032" width="105" height="15" transform="rotate(-90 319 1032)" fill="#91A8B6"/>
-                        <rect x="661" y="552" width="73" height="15" fill="#91A8B6"/>
-                        <rect x="61" y="720" width="79" height="15" fill="#91A8B6"/>
-                        <rect x="61" y="632" width="79" height="15" fill="#91A8B6"/>
-                        <rect x="661" y="508" width="73" height="15" fill="#91A8B6"/>
-                        <rect x="61" y="676" width="79" height="15" fill="#91A8B6"/>
-                        <rect x="61" y="588" width="79" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="418" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="631" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="697" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="807" width="149" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="374" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="587" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="661" y="530" width="73" height="15" fill="#91A8B6"/>
-                        <rect x="61" y="698" width="79" height="15" fill="#91A8B6"/>
-                        <rect x="61" y="610" width="79" height="15" fill="#91A8B6"/>
-                        <rect x="661" y="486" width="73" height="15" fill="#91A8B6"/>
-                        <rect x="61" y="654" width="79" height="15" fill="#91A8B6"/>
-                        <rect x="661" y="464" width="73" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="352" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="308" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="396" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="609" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="675" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="785" width="149" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="873" width="149" height="15" fill="#91A8B6"/>
-                        <rect x="501" y="829" width="64" height="15" transform="rotate(-90 501 829)" fill="#91A8B6"/>
-                        <rect x="273" y="829" width="64" height="15" transform="rotate(-90 273 829)" fill="#91A8B6"/>
-                        <rect x="207" y="829" width="64" height="15" transform="rotate(-90 207 829)" fill="#91A8B6"/>
-                        <rect x="166" y="1032" width="105" height="15" transform="rotate(-90 166 1032)" fill="#91A8B6"/>
-                        <rect x="363" y="1032" width="105" height="15" transform="rotate(-90 363 1032)" fill="#91A8B6"/>
-                        <rect x="556" y="330" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="286" width="178" height="15" fill="#91A8B6"/>
-                        <rect x="556" y="235" width="178" height="30" fill="#FFF2DE"/>
-                        <rect x="556" y="184" width="178" height="30" fill="#FFF2DE"/>
-                        <rect x="556" y="133" width="178" height="30" fill="#FFF2DE"/>
-                        <rect x="445" y="681" width="25" height="25" fill="#FFF2DE"/>
-                        <rect x="407" y="681" width="25" height="25" fill="#FFF2DE"/>
-                        <rect x="369" y="681" width="25" height="25" fill="#FFF2DE"/>
-                        <rect x="330" y="681" width="25" height="25" fill="#FFF2DE"/>
-                        <rect x="292" y="681" width="25" height="25" fill="#FFF2DE"/>
-                        <rect x="244" y="927" width="56" height="31" fill="#FFF2DE"/>
-                        <rect x="50" y="823" width="56" height="16" fill="#FFF2DE"/>
-                        <rect x="50" y="757" width="56" height="16" fill="#FFF2DE"/>
-                        <rect x="50" y="773" width="15" height="50" fill="#FFF2DE"/>
-                        <rect x="244" y="967" width="56" height="31" fill="#FFF2DE"/>
-                        <rect x="244" y="1004" width="56" height="31" fill="#FFF2DE"/>
-                        <rect x="254" y="681" width="25" height="25" fill="#FFF2DE"/>
-                        <rect x="765" y="64" width="56" height="25" fill="#FFF2DE"/>
-                        <rect x="765" y="25" width="56" height="25" fill="#FFF2DE"/>
-                        <rect x="765" y="103" width="56" height="25" fill="#FFF2DE"/>
-                        <rect x="765" y="142" width="56" height="25" fill="#FFF2DE"/>
-                        <circle cx="583" cy="929" r="27" fill="#FFF2DE"/>
-                        <circle cx="409" cy="881" r="27" fill="#FFF2DE"/>
-                        <circle cx="337" cy="881" r="27" fill="#FFF2DE"/>
-                        <circle cx="373" cy="807" r="27" fill="#FFF2DE"/>
-                        <circle cx="681" cy="929" r="27" fill="#FFF2DE"/>
-                        <circle cx="779" cy="929" r="27" fill="#FFF2DE"/>
-                        <rect x="114" y="1041" width="337" height="20" fill="#FFF2DE"/>
-                        <defs>
-                        <clipPath id="clip0_95_3">
-                        <rect width="80" height="80" fill="white" transform="translate(373 37)"/>
-                        </clipPath>
-                        </defs>
-
-                    </svg>
+                    <Image src = "/Floor3.svg" width={200} height={height} 
+                    preserveAspectRatio={aspectRatio} className="rendered-map"  onClick={handleClick}
+                    ref={mapRef} alt="Map" style={{height: height}}/>
                 )
             case 3:
                 return (
-                    <svg width="100%" height={height + "px"} viewBox="0 0 836 1040" fill="none" 
-                        onClick={handleClick} id="map-actual" ref={mapRef}
-                        xmlns="http://www.w3.org/2000/svg"  preserveAspectRatio={aspectRatio}>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M42 1035V848H5V748H56V570H42V470H52V471H56V200H42V5H52V19H137V5H290V6H320V5H422V19H507V5H700V19H788V192.973H831V292H732V290H698V750H732V748H831V847H791V940H788V966H700V980H600V966H516.832V1035H42ZM470 711H235V292H470V711Z" fill="#FFDFAE" stroke="#4C697B" strokeWidth="10"/>
-                    </svg>
+                    <Image src = "/Floor4.svg" width={200} height={height} 
+                    preserveAspectRatio={aspectRatio} className="rendered-map"  onClick={handleClick} 
+                    ref={mapRef} alt="Map" style={{height: height}}/>
                 )
             case 4:
                 return (
-                    <svg width="100%" height={height + "px"} viewBox="0 0 800 985" fill="none" 
-                        onClick={handleClick} id="map-actual" ref={mapRef}
-                        xmlns="http://www.w3.org/2000/svg"  preserveAspectRatio={aspectRatio}>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M100 980V966H16V980H5V747H19V570H5V470H19V200H5V60H244V5H253V6H283V5H626V19H695V192H795V292H695V748H794V847H695V965H625V980H100ZM482 748H198V280H482V748Z" fill="#FFDFAE" stroke="#4C697B" strokeWidth="10"/>
-                    </svg>
+                    <Image src = "/Floor5.svg" width={200} height={height} 
+                    preserveAspectRatio={aspectRatio} className="rendered-map"  onClick={handleClick} 
+                    ref={mapRef} alt="Map" style={{height: height}}/>
                 )
             default:
                 return (<p>Error: No image for floor {floor}</p>)

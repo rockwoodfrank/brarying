@@ -42,9 +42,9 @@ export default function SideBar({floors, setter, current})
                 </div> 
             </section>}
             <div className="menu" onClick={() => toggleMenu(!menuOpen)}>
-                    <div id={menuOpen && "top-bar"} style={{top:(menuOpen ? "50%" : "0%")}}></div>
-                    <div id={menuOpen && "middle-bar"} style={{top:"50%"}}></div>
-                    <div id={menuOpen && "bottom-bar"} style={{top:(menuOpen ? "50%" : "100%")}}></div>
+                    <div id={menuOpen ? "top-bar" : undefined} style={{top:(menuOpen ? "50%" : "0%")}}></div>
+                    <div id={menuOpen ? "middle-bar" : undefined} style={{top:"50%"}}></div>
+                    <div id={menuOpen ? "bottom-bar" : undefined} style={{top:(menuOpen ? "50%" : "100%")}}></div>
                     { (!menuOpen && checkOtherFloors()) && <section className="active-dot"></section>}
             </div>
         </div>
