@@ -51,10 +51,9 @@ export default function MyApp() {
             </Head>
             <main>
                 <Background />
-                <Header index={currentFloor} floorList={floors}/>
                 <Map floor={currentFloor} />
                 <CampusMap editor={editor} setEditor={setEditor} newPinVal={newPinVal} newPinFloor={newPinFloor} newPinPostion={newPosition} setNewPosition={setNewPosition}/>
-                <SideBar floors={floors} setter={setCurrent} current={currentFloor} />
+                <Header index={currentFloor} floorList={floors}/>
                 {editor == "new" ? <Editor handleClick={saveData} openMod={setEditor} inputVal={newPinVal} setInput={setnewPin} floor={newPinFloor} setFloor={setNewFloor} pos={newPosition}/> : null}
             </main>
         </>
