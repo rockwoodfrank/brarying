@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 import Editor from './editor';
 import { useQuery } from "thin-backend-react";
 import { createRecord, deleteRecord, query } from "thin-backend";
+import InfoBox from './infobox';
 
 const CampusMap = dynamic(() => import('./campusmap'), {
   ssr: false,
@@ -55,7 +56,9 @@ export default function MyApp() {
                 <Map floor={currentFloor} />
                 <CampusMap editor={editor} setEditor={setEditor} newPinVal={newPinVal} newPinFloor={newPinFloor} newPinPostion={newPosition} setNewPosition={setNewPosition}/>
                 <Header index={currentFloor} floorList={floors}/>
-                {editor == "new" ? <Editor handleClick={saveData} openMod={setEditor} inputVal={newPinVal} setInput={setnewPin} floor={newPinFloor} setFloor={setNewFloor} pos={newPosition}/> : null}
+                {editor == "new" ? 
+                    <Editor handleClick={saveData} openMod={setEditor} inputVal={newPinVal} setInput={setnewPin} floor={newPinFloor} setFloor={setNewFloor} pos={newPosition}/> : 
+                    editor != "" ? <InfoBox id={editor} setEditor={setEditor}/> : null}
             </main>
         </>
     );

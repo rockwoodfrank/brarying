@@ -49,11 +49,15 @@ export default function Editor({inputVal, setInput, handleClick, openMod, pos, n
             {
                 handleClick(inputVal, calcTime(selectedTime), pos.lng, pos.lat, parseFloor(floor));
                 openMod("");
+                setInput("");
+                setFloor("0");
             } 
             else if(customTime != '')
             {
                 handleClick(inputVal, calcTime(customTime), pos.lng, pos.lat, parseFloor(floor));
                 openMod("");
+                setInput("");
+                setFloor("0");
             }
         }
     }
