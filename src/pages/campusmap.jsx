@@ -42,7 +42,7 @@ export default function CampusMap({editor, setEditor, newPinVal, newPinFloor, ne
           zIndex={20}
         />
         {
-          locations && locations.length>0 && locations.map((location) => <SetPin location={location} setEditor={setEditor} editor={editor}/>)
+          locations && locations.length>0 && locations.map((location) => <SetPin location={location} setEditor={setEditor} editor={editor} key={location.id}/>)
         }
         <PinAdder handleClick={createPin} isOpen={editor} pinName={newPinVal} floor={newPinFloor} position={newPinPostion} setPosition={setNewPosition}/>
       </MapContainer>

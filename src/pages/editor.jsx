@@ -80,7 +80,7 @@ export default function Editor({inputVal, setInput, handleClick, openMod, pos, n
                 onChange={e => handleFloorChange(e)}
                 id="floors" >
                 {
-                    Flo.map((floor, key) => <option value={key}>{floor}</option>)
+                    Flo.map((floor, key) => <option value={key} key={key}>{floor}</option>)
                 }
                 </select>
                 <div className="choice-img" id = "confirm" onClick={sendInfo}>
