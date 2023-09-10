@@ -18,16 +18,24 @@
     "stream": false,
     "tls": false
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
+    "@react-leaflet/universal-leaflet": "^1.0.1",
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "firebase": "^8.10.1",
+    "jsdom-global": "^3.0.2",
     "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
     "thin-backend": "^0.12.1",
     "thin-backend-react": "^0.10.1",
     "typescript": "5.0.2",
@@ -35,6 +43,8 @@
     "write-json-file": "^5.0.0"
   },
   "devDependencies": {
-    "@types/thin-backend": "https://thin.dev/types/469bc8fd-0b3e-4de4-a0aa-b848ace84c9a/HXLMXBuFmCezLFkFaYkWUJPLSsoBorkF"
+    "@types/thin-backend": "https://thin.dev/types/469bc8fd-0b3e-4de4-a0aa-b848ace84c9a/HXLMXBuFmCezLFkFaYkWUJPLSsoBorkF",
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
+    "leaflet": "^1.9.4"
   }
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Swatch from "./swatch";
 import Time from "./time";
 
-export default function Editor({selectedColor, setColor, handleClick, openMod, xPos, yPos, newPin, givenTime, previousName})
+export default function Editor({inputVal, setInput, handleClick, openMod, pos, newPin, givenTime, previousName, floor, setFloor})
 {
     const colors = [
         '#FF5858', '#2CB55B', '#DE58FF', '#FC9A27', '#58AFFF', '#606060'
@@ -10,11 +10,13 @@ export default function Editor({selectedColor, setColor, handleClick, openMod, x
     const times = [
         1, 2, 4
     ]
-    const [inputVal, setInput] = useState(newPin ? "" : previousName)
     const [selectedTime,setTime]=useState(givenTime ? givenTime : times[0]);
     const [customTime, setCustom]=useState(givenTime ? givenTime:'0:00');
     let colorIndex = 0;
     let timeIndex = 0;
+    const [floors, setFloors] = useState(["None", "1", "2", "3", "4", "5"])
+    const Flo = floors.map(Flo => Flo)
+    const handleFloorChange = (e) => setFloor(e.target.value)
 
     function calcTime(time)
     {
@@ -33,18 +35,24 @@ export default function Editor({selectedColor, setColor, handleClick, openMod, x
     {
         setInput(e.target.value);
     }
+    function parseFloor(f)
+    {
+        if (f == "None")
+            return 0;
+        return parseInt(f, 10);
+    }
     function sendInfo()
     {
         if (inputVal != '')
         {
             if((times.indexOf(selectedTime) >= 0))
             {
-                handleClick(inputVal, selectedColor, calcTime(selectedTime), xPos, yPos);
+                handleClick(inputVal, calcTime(selectedTime), pos.lng, pos.lat, parseFloor(floor));
                 openMod("");
             } 
             else if(customTime != '')
             {
-                handleClick(inputVal, selectedColor, calcTime(customTime), xPos, yPos);
+                handleClick(inputVal, calcTime(customTime), pos.lng, pos.lat, parseFloor(floor));
                 openMod("");
             }
         }
@@ -52,34 +60,36 @@ export default function Editor({selectedColor, setColor, handleClick, openMod, x
     
     return (
         <div className="editor">
-            <div className="top">
-                <input type="text" name="" id="" placeholder="Name(s)..." 
-                    onChange={handleTagChange} style={{animationDuration: "0.4s"}} defaultValue={newPin ? "" : previousName}/>
-                <div className="symbols">
-                    <img src="/check.svg" alt="Confirm" onClick={sendInfo} style={{
+            <input type="text" name="" id="" placeholder="Name(s)..." 
+                onChange={handleTagChange} style={{animationDuration: "0.4s"}} defaultValue={newPin ? "" : previousName}/>
+            <div className="times">
+                {times.map((time) => {
+                    timeIndex++;
+                    return <Time time={time} timeList={times} selected={time == selectedTime} handleClick={setTime} key={time} timeIndex={timeIndex}/>
+                })}
+                <Time time={givenTime ? givenTime : -1} timeList={times} selected={(givenTime ? givenTime : -1) == selectedTime} 
+                handleClick={setTime} key={-1} timeIndex={4} setCustom={setCustom}/>
+            </div>
+            <div className="symbols">
+                <p>Floor</p>
+                <select
+                onChange={e => handleFloorChange(e)}
+                id="floors" >
+                {
+                    Flo.map((floor, key) => <option value={key}>{floor}</option>)
+                }
+                </select>
+                <div className="choice-img" id = "confirm" onClick={sendInfo}>
+                    <img src="/check.svg" alt="Confirm" style={{
                         width: "1em",
                         animationDuration: "0.5s"
                     }}/>
+                </div>
+                <div className="choice-img" id = "close" onClick={() => openMod(newPin ? "" : false)}>
                     <img src="/cross.svg" alt="Close" style={{
                         width: "1em",
                         animationDuration: "0.6s"
-                    }} onClick={() => openMod(newPin ? "" : false)}/>
-                </div>
-            </div>
-            <div className="options">
-                <div className="colors">
-                    {colors.map((color) => {
-                        colorIndex++;
-                        return <Swatch color={color} selected={color == selectedColor} handleClick={setColor} colorIndex={colorIndex} key={color}/>
-                    })}
-                </div>
-                <div className="times">
-                    {times.map((time) => {
-                        timeIndex++;
-                        return <Time time={time} timeList={times} selected={time == selectedTime} handleClick={setTime} key={time} timeIndex={timeIndex}/>
-                    })}
-                    <Time time={givenTime ? givenTime : -1} timeList={times} selected={(givenTime ? givenTime : -1) == selectedTime} 
-                    handleClick={setTime} key={-1} timeIndex={4} setCustom={setCustom}/>
+                    }}/>
                 </div>
             </div>
         </div>
