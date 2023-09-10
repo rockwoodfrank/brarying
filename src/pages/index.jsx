@@ -42,6 +42,7 @@ export default function MyApp() {
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet" /> 
                 <link
                 rel="stylesheet"
                 href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -64,6 +65,7 @@ function Header({index, floorList}) {
     return (
         <header>
             <h1 className='headline'>Anybody Brarying?</h1>
+            <h2 className='sub-headline'>Across Campus!</h2>
         </header>
     )
 }

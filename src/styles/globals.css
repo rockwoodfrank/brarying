@@ -26,6 +26,16 @@ header {
   -webkit-text-stroke-color: black;
 }
 
+.sub-headline {
+  color: #f00;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 2em;
+  position: relative;
+  bottom: 5vh;
+  left: 10vh;
+}
+
 h2 {
   color: #4c697b;
   font-weight: 500;

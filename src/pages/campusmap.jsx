@@ -35,7 +35,7 @@ export default function CampusMap({editor, setEditor, newPinVal, newPinFloor, ne
   ];
   return (
     <div className = "map-container">
-      <MapContainer center={[35.302028, -120.660167]} zoom={17} scrollWheelZoom={true} maxBounds={mapBounds} minZoom={15}>
+      <MapContainer center={[35.302028, -120.660167]} zoom={15} scrollWheelZoom={true} maxBounds={mapBounds} minZoom={15}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           zIndex={20}
