@@ -11,7 +11,7 @@ export default function Map({floor, floorIndex})
 {
     const [pageX, setPageX] = useState(0);
     const [pageY, setPageY] = useState(0);
-    const [openEditor, setOpen] = useState('');
+    const [openEditor, setOpen] = useState('');//If an editor is open, will be set to a value, otherwise ''
     const mapHeight = 300;
     const mapRef = useRef();
     let locations = useQuery(query('locations'));
@@ -29,7 +29,7 @@ export default function Map({floor, floorIndex})
             }
         }
     }
-    function saveData(location, floor)
+    function saveData(location)
     {
         createRecord('locations',{
             name: location.name,
@@ -81,7 +81,7 @@ export default function Map({floor, floorIndex})
         saveData(newLocation, floor);
     }
     return (
-        <div id = "map">
+        <div id = "map" style = {{display: "none"}}>
             {filterTimes(locations)}
             <p className="direction">S<br/>o<br/>u<br/>t<br/>h</p>
             <div id="map-grid">
