@@ -33,6 +33,14 @@ export default function CampusMap({editor, setEditor, newPinVal, newPinFloor, ne
     [35.313256, -120.651377],
     [35.291987, -120.671176],
   ];
+
+  function formatTime(time)
+  {
+    let timeRemaining = Date.parse(time) - Date.now();
+    let hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+    let minutes = Math.floor(timeRemaining / (1000 * 60)) % 60;
+    return hours + ":" + (minutes < 10 ? "0" : "") + minutes
+  }
   return (
     <div className = "map-container">
       <MapContainer center={[35.302028, -120.660167]} zoom={15} scrollWheelZoom={true} maxBounds={mapBounds} minZoom={15}>
@@ -45,6 +53,9 @@ export default function CampusMap({editor, setEditor, newPinVal, newPinFloor, ne
             <Tooltip direction="bottom" offset={[-17, 30]} opacity={1} permanent>
               {location.name}{location.floor == "None" || location.floor == "0" ? null : ", Floor " + location.floor}
             </Tooltip>
+            <Popup>
+              {formatTime(location.timeExp)}
+            </Popup>
           </Marker>)
         }
         <PinAdder handleClick={createPin} isOpen={editor} pinName={newPinVal} floor={newPinFloor} position={newPinPostion} setPosition={setNewPosition}/>
