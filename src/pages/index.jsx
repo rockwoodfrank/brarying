@@ -10,8 +10,13 @@ import { useQuery } from "thin-backend-react";
 import { createRecord, deleteRecord, query } from "thin-backend";
 import InfoBox from './infobox';
 
-const CampusMap = dynamic(() => import('./campusmap'), {
+const CampusMap = dynamic(() => import('../../components/campusmap'), {
   ssr: false,
+  loading: () => (
+    <div style={{textAlign: 'center', paddingTop: 20}}>
+      Loading…
+    </div>
+  )
 })
 
 export default function MyApp() {
@@ -53,7 +58,6 @@ export default function MyApp() {
             </Head>
             <main>
                 <Background />
-                <Map floor={currentFloor} />
                 <CampusMap editor={editor} setEditor={setEditor} newPinVal={newPinVal} newPinFloor={newPinFloor} newPinPostion={newPosition} setNewPosition={setNewPosition}/>
                 <Header index={currentFloor} floorList={floors}/>
                 {editor == "new" ? 
@@ -64,7 +68,7 @@ export default function MyApp() {
     );
 }
 
-function Header({index, floorList}) {
+function Header() {
     return (
         <header>
             <h1 className='headline'>Anybody Brarying?</h1>

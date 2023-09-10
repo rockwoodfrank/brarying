@@ -32,10 +32,12 @@
     "eslint-config-next": "13.2.4",
     "firebase": "^8.10.1",
     "jsdom-global": "^3.0.2",
+    "leaflet": "^1.9.4",
     "next": "13.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
+    "react-leaflet-universal": "^2.2.1",
     "thin-backend": "^0.12.1",
     "thin-backend-react": "^0.10.1",
     "typescript": "5.0.2",
@@ -44,7 +46,6 @@
   },
   "devDependencies": {
     "@types/thin-backend": "https://thin.dev/types/469bc8fd-0b3e-4de4-a0aa-b848ace84c9a/HXLMXBuFmCezLFkFaYkWUJPLSsoBorkF",
-    "@vue-leaflet/vue-leaflet": "^0.10.1",
-    "leaflet": "^1.9.4"
+    "@vue-leaflet/vue-leaflet": "^0.10.1"
   }
 }

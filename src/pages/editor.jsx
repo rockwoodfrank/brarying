@@ -14,7 +14,7 @@ export default function Editor({inputVal, setInput, handleClick, openMod, pos, n
     const [customTime, setCustom]=useState(givenTime ? givenTime:'0:00');
     let colorIndex = 0;
     let timeIndex = 0;
-    const [floors, setFloors] = useState(["None", "1", "2", "3", "4", "5"])
+    const [floors, setFloors] = useState(["None", "1", "2", "3", "4", "5", "6"])
     const Flo = floors.map(Flo => Flo)
     const handleFloorChange = (e) => setFloor(e.target.value)
 

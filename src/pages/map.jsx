@@ -81,7 +81,7 @@ export default function Map({floor, floorIndex})
         saveData(newLocation, floor);
     }
     return (
-        <div id = "map" style = {{display: "none"}}>
+        <div id = "map">
             {filterTimes(locations)}
             <p className="direction">S<br/>o<br/>u<br/>t<br/>h</p>
             <div id="map-grid">
