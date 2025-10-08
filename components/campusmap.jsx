@@ -48,8 +48,7 @@ function PinAdder({handleClick, isOpen, pinName, floor, position, setPosition}) 
   );
 }
 
-export default function CampusMap({editor, setEditor, newPinVal, newPinFloor, newPinPostion, setNewPosition}) {
-  let locations = useQuery(query('locations'));
+export default function CampusMap({editor, setEditor, newPinVal, newPinFloor, newPinPostion, setNewPosition, locations}) {
   function createPin(latlng) {
     setEditor(editor == '' ? 'new' : '');
   }

@@ -8,7 +8,10 @@ import dynamic from 'next/dynamic';
 import Editor from './editor';
 import { useQuery } from "thin-backend-react";
 import { createRecord, deleteRecord, query } from "thin-backend";
+import { createClient } from "@supabase/supabase-js";
 import InfoBox from './infobox';
+
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY);
 
 const CampusMap = dynamic(() => import('../../components/campusmap'), {
   ssr: false,
@@ -28,11 +31,22 @@ export default function MyApp() {
     const [newPinVal, setnewPin] = useState("");
     const [newPinFloor, setNewFloor] = useState("None")
     const [newPosition, setNewPosition] = useState(null)
+    const [locations, setLocations] = useState([]);
 
-    function saveData(name, time, xPos, yPos, floor)
+    useEffect(() => {
+        getLocations();
+    }, []);
+
+    async function getLocations() {
+        const { data } = await supabase.from("locations").select();
+        setLocations(data);
+    }
+    
+
+    async function saveData(name, time, xPos, yPos, floor)
     {
         console.log("Bing!")
-        createRecord('locations',{
+        const {data, error} = await supabase.from("locations").insert({
             name: name,
             xPos: xPos,
             yPos: yPos,
@@ -40,6 +54,8 @@ export default function MyApp() {
             timeExp: time,
             floor: floor
         });
+
+        console.log(error)
     }
     return (
         <>
@@ -58,7 +74,7 @@ export default function MyApp() {
             </Head>
             <main>
                 <Background />
-                <CampusMap editor={editor} setEditor={setEditor} newPinVal={newPinVal} newPinFloor={newPinFloor} newPinPostion={newPosition} setNewPosition={setNewPosition}/>
+                <CampusMap editor={editor} setEditor={setEditor} newPinVal={newPinVal} newPinFloor={newPinFloor} newPinPostion={newPosition} setNewPosition={setNewPosition} locations={locations}/>
                 <Header index={currentFloor} floorList={floors}/>
                 {editor == "new" ? 
                     <Editor handleClick={saveData} openMod={setEditor} inputVal={newPinVal} setInput={setnewPin} floor={newPinFloor} setFloor={setNewFloor} pos={newPosition}/> : 

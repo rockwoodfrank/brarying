@@ -1,11 +1,16 @@
 import Marker from "./marker";
 import Location from "./location";
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { uuid } from "uuidv4";
 import { useQuery } from "thin-backend-react";
 import { createRecord, deleteRecord, query } from "thin-backend";
 import MapSwitcher from "./mapswitcher";
 import ClickDetector from "./clickdetector";
+import { createClient } from "@supabase/supabase-js";
+
+
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY);
+
 
 export default function Map({floor, floorIndex})
 {
@@ -14,7 +19,17 @@ export default function Map({floor, floorIndex})
     const [openEditor, setOpen] = useState('');//If an editor is open, will be set to a value, otherwise ''
     const mapHeight = 300;
     const mapRef = useRef();
-    let locations = useQuery(query('locations'));
+    const [locations, setLocations] = useState([]);
+
+    useEffect(() => {
+        getLocations();
+    }, []);
+
+    async function getLocations() {
+        const { data } = await supabase.from("locations").select();
+        setLocations(data);
+    }
+
     function checkTime(location) {
         return Date.parse(location.timeExp) <= Date.now()
     }
