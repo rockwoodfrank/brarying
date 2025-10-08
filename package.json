@@ -38,14 +38,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
-    "thin-backend": "^0.12.1",
-    "thin-backend-react": "^0.10.1",
     "typescript": "5.0.2",
     "uuidv4": "^6.2.13",
     "write-json-file": "^5.0.0"
   },
   "devDependencies": {
-    "@types/thin-backend": "https://thin.dev/types/469bc8fd-0b3e-4de4-a0aa-b848ace84c9a/HXLMXBuFmCezLFkFaYkWUJPLSsoBorkF",
     "@vue-leaflet/vue-leaflet": "^0.10.1"
   }
 }
