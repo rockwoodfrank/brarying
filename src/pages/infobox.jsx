@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useState } from "react";
-import { deleteRecord } from "thin-backend";
 
 export default function InfoBox({time, id, setEditor})
 {
@@ -13,6 +12,7 @@ export default function InfoBox({time, id, setEditor})
         else
             if (id != '' || id != 'new')
             {
+                // TODO: Replace with a working function
                 deleteRecord('locations', id)
                 setEditor("")
             }

@@ -1,6 +1,4 @@
 import { useState } from "react"
-import { useQuery } from "thin-backend-react"
-import { query } from "thin-backend"
 
 export default function SideBar({floors, setter, current})
 {

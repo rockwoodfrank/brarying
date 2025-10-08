@@ -2,8 +2,6 @@ import Marker from "./marker";
 import Location from "./location";
 import { useState, useRef, useEffect } from 'react';
 import { uuid } from "uuidv4";
-import { useQuery } from "thin-backend-react";
-import { createRecord, deleteRecord, query } from "thin-backend";
 import MapSwitcher from "./mapswitcher";
 import ClickDetector from "./clickdetector";
 import { createClient } from "@supabase/supabase-js";

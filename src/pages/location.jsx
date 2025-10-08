@@ -1,7 +1,6 @@
 import { useState } from "react";
 import InfoBox from "./infobox.jsx"
 import Editor from "./editor.jsx";
-import { updateRecord } from "thin-backend";
 
 export default function Location({xPos, yPos, name, givenColor, givenTime, mapOpen, setOpen, editorKey})
 {
@@ -14,6 +13,7 @@ export default function Location({xPos, yPos, name, givenColor, givenTime, mapOp
     }
     function pushLoc(tag, color, time)
     {
+        // TODO: Replace with a working function
         updateRecord('locations', editorKey, {
             name: tag,
             color: color,

@@ -6,8 +6,6 @@ import Map from './map';
 import SideBar from './sidebar';
 import dynamic from 'next/dynamic';
 import Editor from './editor';
-import { useQuery } from "thin-backend-react";
-import { createRecord, deleteRecord, query } from "thin-backend";
 import { createClient } from "@supabase/supabase-js";
 import InfoBox from './infobox';
 

@@ -1,7 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup, Tooltip, useMapEvent} from 'react-leaflet';
 import { useState, useMemo} from 'react';
-import { useQuery } from "thin-backend-react";
-import { createRecord, deleteRecord, query } from "thin-backend";
 
 function SetPin({location, editor, setEditor}) {
   const eventHandlers = useMemo(
