@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Background from './background';
 import Map from './map';
-import SideBar from './sidebar';
 import dynamic from 'next/dynamic';
 import Editor from './editor';
 import { createClient } from "@supabase/supabase-js";
