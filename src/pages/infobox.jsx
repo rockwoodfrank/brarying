@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function InfoBox({time, id, setEditor})
+export default function InfoBox({time, id, setEditor, deleteLocation})
 {
     const [confirm, setConfirm] = useState(false)
     
@@ -13,7 +13,7 @@ export default function InfoBox({time, id, setEditor})
             if (id != '' || id != 'new')
             {
                 // TODO: Replace with a working function
-                deleteRecord('locations', id)
+                deleteLocation(id)
                 setEditor("")
             }
     }

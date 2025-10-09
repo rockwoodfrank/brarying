@@ -38,19 +38,29 @@ export default function MyApp() {
         const { data } = await supabase.from("locations").select();
         setLocations(data);
     }
+
+    async function deleteLocation(locationId) {
+        // Delete it from the database
+        await supabase.from("locations").delete().eq('id', locationId)
+        
+        // Delete it from the webpage
+        setLocations(locations.filter(location => location.id != locationId))
+    }
     
 
     async function saveData(name, time, xPos, yPos, floor)
     {
         console.log("Bing!")
-        const {data, error} = await supabase.from("locations").insert({
+        const newLocation = {
             name: name,
             xPos: xPos,
             yPos: yPos,
             color: "#ffffff",
             timeExp: time,
             floor: floor
-        });
+        }
+        const {data, error} = await supabase.from("locations").insert(newLocation);
+        setLocations([...locations, newLocation])
 
         console.log(error)
     }
@@ -71,11 +81,11 @@ export default function MyApp() {
             </Head>
             <main>
                 <Background />
-                <CampusMap editor={editor} setEditor={setEditor} newPinVal={newPinVal} newPinFloor={newPinFloor} newPinPostion={newPosition} setNewPosition={setNewPosition} locations={locations}/>
+                <CampusMap editor={editor} setEditor={setEditor} newPinVal={newPinVal} newPinFloor={newPinFloor} newPinPostion={newPosition} setNewPosition={setNewPosition} locations={locations} deleteLocation={deleteLocation}/>
                 <Header index={currentFloor} floorList={floors}/>
                 {editor == "new" ? 
                     <Editor handleClick={saveData} openMod={setEditor} inputVal={newPinVal} setInput={setnewPin} floor={newPinFloor} setFloor={setNewFloor} pos={newPosition}/> : 
-                    editor != "" ? <InfoBox id={editor} setEditor={setEditor}/> : null}
+                    editor != "" ? <InfoBox id={editor} setEditor={setEditor} deleteLocation={deleteLocation}/> : null}
             </main>
         </>
     );
